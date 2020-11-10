@@ -1,0 +1,23 @@
+
+[Unit]
+  
+Description=webflask
+ 
+ 
+ 
+[Service]
+ 
+Type=simple
+ 
+ 
+#EnvironmentFile=/etc/systemd/test.conf
+ 
+ExecStart=/usr/bin/python3 /home/leyan/flaskweb_demo/api/demo.py
+ 
+ 
+ 
+ 
+ 
+[Install]
+ 
+WantedBy=multi-user.target
