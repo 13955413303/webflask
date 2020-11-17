@@ -56,6 +56,9 @@ sudo mysql -uroot -p
 
 GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY "123456";
 
+连接远程mysql数据库失败常见原因及解决办法
+https://blog.csdn.net/crossangles_2017/article/details/79529064
+
 3.2 新建数据库和用户
 
 用root用户新建数据和用作远程访问的用户
@@ -68,6 +71,7 @@ CREATE DATABASE weixx;
 的weixx数据库
 
 GRANT ALL PRIVILEGES ON weixx.* TO wxx@"%" IDENTIFIED BY "654321"; 
+
 
 二,apache
 
