@@ -6,7 +6,7 @@ if sys == 'Windows':
     pass
 if sys == 'Linux':
     import sys, os
-    os.chdir(r'/home/leyan/flaskweb_demo')
+    os.chdir(r'/home/admin/webflask/api')
     default_path = os.getcwd()
     sys.path.append(default_path)
     sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
@@ -16,7 +16,7 @@ if sys == 'Linux':
 from flask import Flask, request, render_template
 import json
 
-from flaskweb_demo.sql_util.link_mysql import insert_info, select_info
+from sql_util.link_mysql import insert_info, select_info
 
 app = Flask(__name__)
 
@@ -34,6 +34,7 @@ def zhuce():
     get_data = request.args.to_dict()
     name = get_data.get('name')
     age = get_data.get('age')
+    print(name,age)
     try:
         insert_info(name, int(age))
     except BaseException:
@@ -48,9 +49,11 @@ def zhuce():
 @app.route('/test_2.0', methods=["GET", "POST"])
 def denglu():
     if request.method == "GET":
-        return render_template('../html/222.html')
+        return_dict = {'return_code': '5004', 'return_info': '请求参数为空', 'result': False}
+        return json.dumps(return_dict, ensure_ascii=False), 5004
     elif request.method == 'POST':
         name = request.form['name']
+        print(name)
         try:
             result = select_info(name)
         except BaseException:

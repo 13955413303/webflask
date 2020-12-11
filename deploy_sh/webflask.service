@@ -12,7 +12,7 @@ Type=simple
  
 #EnvironmentFile=/etc/systemd/test.conf
  
-ExecStart=/usr/bin/python3 /home/leyan/flaskweb_demo/api/demo.py
+ExecStart=/usr/bin/python3 /home/admin/flaskweb_demo/api/demo.py
  
  
  

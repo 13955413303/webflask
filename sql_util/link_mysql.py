@@ -4,7 +4,7 @@ import pymysql
 
 def insert_info(name,age):
     # 连接database
-    conn = pymysql.connect(host="192.168.5.10",user="root",password="123456",database="flask_test",charset="utf8")
+    conn = pymysql.connect(host="localhost",user="root",password="123456",database="flask_test",charset="utf8")
     # 得到一个可以执行SQL语句并且将结果作为字典返回的游标
     cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
     # 定义要执行的SQL语句
@@ -28,7 +28,7 @@ def insert_info(name,age):
 
 def select_info(name):
     # 连接database
-    conn = pymysql.connect(host="192.168.5.10",user="root",password="123456",database="flask_test",charset="utf8")
+    conn = pymysql.connect(host="localhost",user="root",password="123456",database="flask_test",charset="utf8")
     # 得到一个可以执行SQL语句并且将结果作为字典返回的游标
     cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
     sql = " select * from {} where name = '{}';".format('info',name)
@@ -42,5 +42,4 @@ def select_info(name):
     conn.commit()
     conn.close()
     return result
-
 
